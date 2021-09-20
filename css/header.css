@@ -1,0 +1,69 @@
+#master{
+    display: flex;
+    flex-direction: column;
+}
+
+#master > #inner{
+    display: flex;
+    flex-flow: row, nowrap;
+    
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    z-index: 1;
+
+    background-color: black;
+    height: 50px;
+    min-width: 100vw;
+
+    transition: 0.20s 0s margin ease-out;
+}
+
+.botoes{
+    display: block;
+    flex: 0 0 auto;
+    height: 40px;
+    clear: both;
+}
+
+.botoes .header_botao{
+    float: left;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100%;
+    flex: 0 0 auto;
+    padding: 0 20px;
+}
+
+.botoes .header_a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.1em;
+    flex: 1 0 auto;
+}
+
+.botoes .header_barra{
+    position: relative;
+    bottom: 1px;
+    width: 0%;
+    flex: 0 1 2px;
+    background: linear-gradient(to right, darkblue, blue, darkblue);
+}
+
+.botoes .header_a:hover ~ .header_barra{
+    transition: 0.5s width ease-out;
+    width: 120%;
+}
+
+.botoes .header_a:hover{
+    color: #fff;
+}
