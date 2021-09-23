@@ -1,7 +1,5 @@
 'use strict'
 
-var scrollTrack = 0;
-
 class Menu {
     constructor(headerInicial) {
         this.header = headerInicial;
@@ -17,39 +15,10 @@ class Menu {
         this.mudarCopia()
     }
 
-    ativaDinamico(source1, source2) {
-        window.onresize = () => {
-            while ((this.minSize(this.header) + 0) > this.header.offsetWidth)
-                this.adicionaFilho(source2, this.removeUltimoFilho(source1));
-            
-            this.mudarCopia()
-        }
-    }
-
-    removeUltimoFilho(elemento) {
-        return elemento.removeChild(elemento.children[elemento.children.length - 1]);
-    }
-
-    adicionaFilho(elemento, adicionado) {
-        elemento.appendChild(adicionado)
-    }
-
-    minSize(source) {
-        let minsize = 0;
-        let array = source.children;
-
-        for (let i = 0; i < array.length; i++)
-            minsize += array[i].offsetWidth;
-
-        return minsize;
-    }
-
     mudarCopia() {
         this.copiaHeader.style.width = this.header.offsetWidth.toString() + "px";
         this.copiaHeader.style.height = this.header.offsetHeight.toString() + "px";
     }
-
-
 
     efeitoSumir() {
         document.body.onscroll = (e) => {
@@ -61,13 +30,11 @@ class Menu {
 
                     this.header.style.marginTop =
                         '-' + this.header.offsetHeight.toString() + "px";
-                }
-                else {
+                } else {
 
                     this.header.style.marginTop = "0px";
                 }
-            }
-            else
+            } else
                 this.header.style.marginTop = "0px"
 
             scrollTrack = window.scrollY
